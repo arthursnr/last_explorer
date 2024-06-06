@@ -55,7 +55,7 @@ export function AdminPage() {
             </div>
 
             <div className="bg-slate-950 w-screen flex items-center justify-center">
-                <footer className="py-6 bg-slate-950 flex justify-center items-center">
+                <footer className="py-6 bg-slate-950 flex justify-center items-center fixed bottom-0">
                     <ul className="text-white flex items-center gap-2">
                         <img src="src/assets/Polygon 1 (1).png" alt="Logo" className="mb-2" />
                         <p>food explorer</p>
