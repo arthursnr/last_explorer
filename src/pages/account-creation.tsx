@@ -27,17 +27,17 @@ export function AccountCreation() {
             <form action="post" className='flex flex-col gap-8 w-full'>
                 <div className='flex flex-col gap-2'>
                     <label htmlFor="name" className='text-white opacity-75'>Seu nome</label>
-                    <input type="text" name="name" id="" placeholder='Exemplo: Maria da Silva' className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60' />
+                    <input type="text" name="name" id="" placeholder='Exemplo: Maria da Silva' className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60' required/>
                 </div>
 
                 <div className='flex flex-col gap-2'>
                     <label htmlFor="email" className='text-white opacity-75'>Email</label>
-                    <input type="email" name="email" placeholder='Exemplo: exemplo@exemplo.com.br' className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60' />
+                    <input type="email" name="email" placeholder='Exemplo: exemplo@exemplo.com.br' className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60' required/>
                 </div>
 
                 <div className='flex flex-col gap-2'>
                     <label htmlFor="password" className='text-white opacity-75'>Senha</label>
-                    <input type="password" id="password" name="password" placeholder='No mínimo 6 caracteres' className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60' />
+                    <input type="password" minLength={6} maxLength={12} id="password" name="password" placeholder='No mínimo 6 caracteres' className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60' required/>
                 </div>
 
                 <div>

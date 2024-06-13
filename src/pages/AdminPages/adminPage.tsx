@@ -1,13 +1,23 @@
+import { useState } from "react";
 import { MealsPage } from "./mealsPage";
+import { Search } from "./search";
 
 
 export function AdminPage() {
 
+    const [moreOptions, setMoreOptions] = useState(false);
+
+    if (moreOptions) {
+        return < Search />;
+    }
+
     return (
         <div className='bg-black min-w-screen min-h-screen'>
-            <div className="bg-slate-950 w-screen h-28">
+            <div className="bg-slate-950 min-w-screen h-28">
                 <header className="flex justify-between items-center pt-14 pb-6 px-7 w-screen gap-4">
-                    <button>
+                    <button
+                        type="button"
+                        onClick={() => setMoreOptions(true)}>
                         <img src="src/assets/more.svg" alt="" className="h-5 w-6" />
                     </button>
                     <ul className="flex-grow flex flex-row justify-center text-white gap-4">
@@ -55,11 +65,11 @@ export function AdminPage() {
             </div>
 
             <div className="bg-slate-950 w-screen flex items-center justify-center">
-                <footer className="py-6 bg-slate-950 flex justify-center items-center fixed bottom-0">
+                <footer className="py-6 px-7 bg-slate-950 flex justify-center items-center fixed bottom-0 w-full">
                     <ul className="text-white flex items-center gap-2">
-                        <img src="src/assets/Polygon 1 (1).png" alt="Logo" className="mb-2" />
-                        <p>food explorer</p>
-                        <p>© 2024 - Todos os direitos reservados.</p>
+                        <img src="src/assets/polygon.svg" alt="Logo" />
+                        <p className="text-gray-600 text-base font-bold text-left w-[114px]">food explorer</p>
+                        <p className="text-right text-orange-50 text-xs font-normal w-[222px]">© 2024 - Todos os direitos reservados.</p>
                     </ul>
                 </footer>
             </div>

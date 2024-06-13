@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AccountCreation } from './pages/account-creation';
 import { HomePage } from './pages/UserPages/homePage.tsx';
 import { AdminPage } from './pages/AdminPages/adminPage';
@@ -6,18 +6,24 @@ import { AdminPage } from './pages/AdminPages/adminPage';
 export function App() {
   const [creatingAccount, setCreatingAccount] = useState(false);
   const [loggingAccount, setLoggingAccount] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false); // Novo estado para navegação do admin
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  const [inputValue, setInputValue] = useState<string>('');
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+  const [inputEmail, setInputEmail] = useState<string>('');
+  const [inputPassword, setInputPassword] = useState<string>('');
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputPassword(event.target.value);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Simulando lógica de login
-    if (inputValue === 'admin@example.com') {
-      setIsAdmin(true); // Navegar para a página de admin se o email for de admin
+    if (inputEmail === 'admin@example.com' && inputPassword === 'admin') {
+      setIsAdmin(true); // Navegar para a página de admin se o email e senha estiverem corretos
     } else {
       setLoggingAccount(true); // Navegar para a página do usuário comum
     }
@@ -43,7 +49,6 @@ export function App() {
           food explorer
         </h1>
       </div>
-      
 
       <div>
         <form onSubmit={handleSubmit} className='flex flex-col gap-8 w-full'>
@@ -54,8 +59,9 @@ export function App() {
               name="email"
               placeholder='Exemplo: exemplo@exemplo.com.br'
               className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60'
-              value={inputValue}
-              onChange={handleChange}
+              value={inputEmail}
+              onChange={handleEmailChange}
+              required
             />
           </div>
 
@@ -67,6 +73,9 @@ export function App() {
               id="password"
               placeholder='No mínimo 6 caracteres'
               className='bg-cyan-950 rounded-lg px-3.5 py-3 text-white opacity-60'
+              value={inputPassword}
+              onChange={handlePasswordChange}
+              required
             />
           </div>
 
