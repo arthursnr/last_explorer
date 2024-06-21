@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Search } from "./search";
 import { AdminPage } from "./adminPage";
 
-export function NewDish() {
+const EditPage: React.FC = () => {
+
     const [moreOptions, setMoreOptions] = useState(false);
     const [search, setSearch] = useState(false);
     const [dishIngredients, setDishIngredients] = useState<string[]>([]);
@@ -46,13 +47,12 @@ export function NewDish() {
     };
 
     if (moreOptions) {
-        return <AdminPage />;
-    }
-
-    if (search) {
         return <Search />;
     }
 
+    if (search) {
+        return <AdminPage />;
+    }
     return (
         <div className="bg-black min-w-screen min-h-screen">
             <div className="bg-slate-950 min-w-screen h-28">
@@ -192,4 +192,6 @@ export function NewDish() {
             </footer>
         </div>
     );
-}
+};
+
+export default EditPage;

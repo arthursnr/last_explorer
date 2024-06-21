@@ -2,13 +2,11 @@ import { useState } from "react";
 import { MealsPage } from "./mealsPage";
 import { Search } from "./search";
 
-
 export function AdminPage() {
-
     const [moreOptions, setMoreOptions] = useState(false);
 
     if (moreOptions) {
-        return < Search />;
+        return <Search />;
     }
 
     return (

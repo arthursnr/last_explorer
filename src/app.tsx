@@ -45,7 +45,7 @@ export function App() {
     <div className='pt-40 px-16 bg-black w-screen h-screen'>
       <div className='pb-20'>
         <h1 className='flex text-4xl self-center text-white gap-2.5'>
-          <img src="src\assets\image.png" alt="logo" className='size-11' />
+          <img src="src/assets/image.png" alt="logo" className='size-11' />
           food explorer
         </h1>
       </div>
